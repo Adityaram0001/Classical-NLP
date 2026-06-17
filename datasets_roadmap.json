@@ -1,0 +1,38 @@
+[
+  {
+    "complexity": "Easy",
+    "dataset_name": "SMS Spam Collection Dataset",
+    "dataset_link": "https://kaggle.com",
+    "things_to_learn": "Text cleaning (regex, lowercase, punctuation removal), stopword removal, tokenization, Bag-of-Words (CountVectorizer) vs TF-IDF vectorization, and building a Naive Bayes classifier."
+  },
+  {
+    "complexity": "Easy",
+    "dataset_name": "BBC News Classification",
+    "dataset_link": "https://kaggle.com",
+    "things_to_learn": "Multi-class text categorization, stemming vs lemmatization, vocabulary size tuning, and evaluating performance on balanced categorical data using traditional classifiers like Logistic Regression."
+  },
+  {
+    "complexity": "Medium",
+    "dataset_name": "IMDB Movie Reviews Dataset",
+    "dataset_link": "https://kaggle.com",
+    "things_to_learn": "N-grams (bigrams/trigrams) feature extraction, handling negations in sentiment analysis, managing large matrix sparsity, and using regularized linear models (Ridge/Lasso) for text sentiment analysis."
+  },
+  {
+    "complexity": "Medium",
+    "dataset_name": "A Million News Headlines (Topic Modeling)",
+    "dataset_link": "https://kaggle.com",
+    "things_to_learn": "Unsupervised learning in NLP, Latent Dirichlet Allocation (LDA), Non-Negative Matrix Factorization (NMF), document-topic distribution mapping, and evaluation via topic coherence scores."
+  },
+  {
+    "complexity": "Hard",
+    "dataset_name": "Quora Question Pairs",
+    "dataset_link": "https://kaggle.com",
+    "things_to_learn": "Text similarity engineering, Jaccard similarity, Cosine similarity on TF-IDF vectors, Levenshtein distance, word overlap metrics, and feeding engineered textual distance metrics into tabular ML models."
+  },
+  {
+    "complexity": "Hard",
+    "dataset_name": "Conll2003 (or Kaggle NER Dataset)",
+    "dataset_link": "https://kaggle.com",
+    "things_to_learn": "Sequence tagging, Parts-of-Speech (POS) tagging, Named Entity Recognition (NER), engineering context features (current word, previous word, suffix/prefix clues), and implementing Conditional Random Fields (CRF)."
+  }
+]
