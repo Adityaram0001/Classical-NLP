@@ -92,9 +92,9 @@ def generate_notebooks():
             "MultinomialNB is the industry standard baseline for text classification tasks."
         )),
         nbf.v4.new_markdown_cell("## 2. Train and Evaluate on BoW"),
-        nbf.v4.new_code_cell("nb_bow = MultinomialNB()\nnb_bow.fit(X_train_bow, y_train)\ny_pred_bow = nb_bow.predict(X_test_bow)\nevaluate_classification(y_test, y_pred_bow, labels=['ham', 'spam'])"),
+        nbf.v4.new_code_cell("nb_bow = MultinomialNB()\nnb_bow.fit(X_train_bow, y_train)\ny_pred_bow = nb_bow.predict(X_test_bow)\nevaluate_classification(y_test, y_pred_bow, labels=['ham', 'spam'])\njoblib.dump(nb_bow, '../models/nb_bow.pkl')"),
         nbf.v4.new_markdown_cell("## 3. Train and Evaluate on TF-IDF"),
-        nbf.v4.new_code_cell("nb_tfidf = MultinomialNB()\nnb_tfidf.fit(X_train_tfidf, y_train)\ny_pred_tfidf = nb_tfidf.predict(X_test_tfidf)\nevaluate_classification(y_test, y_pred_tfidf, labels=['ham', 'spam'])"),
+        nbf.v4.new_code_cell("nb_tfidf = MultinomialNB()\nnb_tfidf.fit(X_train_tfidf, y_train)\ny_pred_tfidf = nb_tfidf.predict(X_test_tfidf)\nevaluate_classification(y_test, y_pred_tfidf, labels=['ham', 'spam'])\njoblib.dump(nb_tfidf, '../models/nb_tfidf.pkl')"),
         nbf.v4.new_markdown_cell("## Key Takeaways\n- [x] MultinomialNB performs extremely well on both.\n- [x] Interestingly, BoW might have slightly higher recall for spam than TF-IDF on this specific dataset, but both are very strong (>95% accuracy).")
     ]
     create_notebook(out_dir / "03_naive_bayes_classifier.ipynb", cells_03)
@@ -106,9 +106,9 @@ def generate_notebooks():
         nbf.v4.new_markdown_cell("## 1. Load Data (Using TF-IDF)"),
         nbf.v4.new_code_cell("X_train, X_test, y_train, y_test, vectorizer = joblib.load('../data/processed/tfidf_data.pkl')"),
         nbf.v4.new_markdown_cell("## 2. Logistic Regression"),
-        nbf.v4.new_code_cell("lr = LogisticRegression(max_iter=1000)\nlr.fit(X_train, y_train)\ny_pred_lr = lr.predict(X_test)\nevaluate_classification(y_test, y_pred_lr, labels=['ham', 'spam'])"),
+        nbf.v4.new_code_cell("lr = LogisticRegression(max_iter=1000)\nlr.fit(X_train, y_train)\ny_pred_lr = lr.predict(X_test)\nevaluate_classification(y_test, y_pred_lr, labels=['ham', 'spam'])\njoblib.dump(lr, '../models/logistic_regression.pkl')"),
         nbf.v4.new_markdown_cell("## 3. Support Vector Machine (Linear Kernel)"),
-        nbf.v4.new_code_cell("svc = SVC(kernel='linear')\nsvc.fit(X_train, y_train)\ny_pred_svc = svc.predict(X_test)\nevaluate_classification(y_test, y_pred_svc, labels=['ham', 'spam'])"),
+        nbf.v4.new_code_cell("svc = SVC(kernel='linear')\nsvc.fit(X_train, y_train)\ny_pred_svc = svc.predict(X_test)\nevaluate_classification(y_test, y_pred_svc, labels=['ham', 'spam'])\njoblib.dump(svc, '../models/svm_linear.pkl')"),
         nbf.v4.new_markdown_cell("## Key Takeaways\n- [x] SVM (Linear) often provides the absolute best separation for high-dimensional sparse text data.\n- [x] Logistic Regression is a strong, well-calibrated alternative.\n- [x] For spam detection, we care most about minimizing False Positives (we don't want a legitimate text marked as spam). SVM typically excels here.")
     ]
     create_notebook(out_dir / "04_model_comparison.ipynb", cells_04)

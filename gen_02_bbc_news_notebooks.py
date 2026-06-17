@@ -109,9 +109,9 @@ def generate_notebooks():
             "Linear models and Naive Bayes are the golden standard for BoW/TF-IDF text classification."
         )),
         nbf.v4.new_markdown_cell("## 2. Multinomial Naive Bayes"),
-        nbf.v4.new_code_cell("nb = MultinomialNB()\nnb.fit(X_train, y_train)\ny_pred_nb = nb.predict(X_test)\nevaluate_classification(y_test, y_pred_nb, labels=labels)"),
+        nbf.v4.new_code_cell("nb = MultinomialNB()\nnb.fit(X_train, y_train)\ny_pred_nb = nb.predict(X_test)\nevaluate_classification(y_test, y_pred_nb, labels=labels)\njoblib.dump(nb, '../models/multinomial_nb.pkl')"),
         nbf.v4.new_markdown_cell("## 3. Logistic Regression"),
-        nbf.v4.new_code_cell("lr = LogisticRegression(max_iter=1000)\nlr.fit(X_train, y_train)\ny_pred_lr = lr.predict(X_test)\nevaluate_classification(y_test, y_pred_lr, labels=labels)"),
+        nbf.v4.new_code_cell("lr = LogisticRegression(max_iter=1000)\nlr.fit(X_train, y_train)\ny_pred_lr = lr.predict(X_test)\nevaluate_classification(y_test, y_pred_lr, labels=labels)\njoblib.dump(lr, '../models/logistic_regression_ovr.pkl')"),
         nbf.v4.new_markdown_cell("## Key Takeaways\n- [x] Both models should achieve >95% accuracy.\n- [x] Look at the confusion matrix to see which categories get confused the most (e.g., Tech vs Business).")
     ]
     create_notebook(out_dir / "04_multiclass_modeling.ipynb", cells_04)
