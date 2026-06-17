@@ -1,45 +1,41 @@
-# Classical NLP Roadmap & Q&A
+# Classical NLP Deep Dive
 
-This repository contains a comprehensive guide and Q&A resources for mastering Classical Natural Language Processing (NLP). It follows a structured roadmap covering the essential pillars of NLP before diving into modern Deep Learning approaches.
+This repository is a structured machine learning learning project where we implement Classical Natural Language Processing (NLP) algorithms in depth across multiple datasets.
 
-## 📚 Roadmap Overview
+## Project Structure
 
-The content is divided into 6 key phases:
+### 1. `datasets/`
+Contains the practical implementation of various NLP datasets, exploring algorithms ranging from simple Naive Bayes to more complex models like CRFs.
+Each dataset folder includes:
+- `data/raw/` - Raw datasets.
+- `data/processed/` - Cleaned datasets and vectorizers.
+- `notebooks/` - Explanatory Jupyter notebooks featuring our "Decision Note" design philosophy.
+- `models/` & `results/` - Saved models and metrics.
 
-### Phase 1: Text Preprocessing (The Cleanup)
-*   **Goal:** Transform noisy, unstructured text into a clean, standardized format.
-*   **Key Concepts:** Regex, Normalization, Tokenization, Stopword Filtering.
+Currently implemented projects:
+- **[01_sms_spam_collection](datasets/01_sms_spam_collection/)**: Text cleaning, Bag-of-Words vs TF-IDF, and Naive Bayes baseline.
 
-### Phase 2: Linguistic Metadata (Linguistic Analysis)
-*   **Goal:** Extract structural meaning from text.
-*   **Key Concepts:** POS Tagging, Named Entity Recognition (NER), Dependency Parsing.
+### 2. `shared/`
+Contains reusable utility functions shared across datasets:
+- Text cleaning functions (`text_utils.py`)
+- Standardized evaluation metrics and plots (`evaluation_utils.py`)
 
-### Phase 3: Text Vectorization (Feature Engineering)
-*   **Goal:** Convert text into numerical vectors.
-*   **Key Concepts:** Bag of Words (BoW), TF-IDF, N-Grams, Word2Vec, GloVe, FastText.
+### 3. `documentation/`
+Contains theoretical material and decision logs:
+- **`learning_materials/`**: Extensive Q&A files covering 6 phases of classical NLP (Preprocessing, Metadata, Vectorization, Modeling, Evaluation, Real-World Apps).
+- **`decision_logs/`**: Logs of architectural decisions made during the practical projects.
 
-### Phase 4: Classical Modeling & Topic Discovery
-*   **Goal:** Apply statistical models to text vectors.
-*   **Key Concepts:** Naive Bayes, SVM, HMMs, CRFs, LDA, LSA.
-
-### Phase 5: Implementation & Evaluation
-*   **Goal:** Build usable NLP pipelines and evaluate them.
-*   **Key Concepts:** Scikit-learn Pipelines, F1-Score, Confusion Matrix, Cross-Validation.
-
-### Phase 6: Real-World Applications
-*   **Goal:** Solve practical problems with NLP.
-*   **Key Concepts:** Sentiment Analysis, Text Summarization, Information Extraction, Spell Checking.
-
-## 📂 Repository Structure
-
-*   `classical_NLP_roadmap.md`: The detailed roadmap document.
-*   `phase1_text_preprocessing_QnA.md`: Q&A for Phase 1.
-*   `phase2_linguistic_metadata_QnA.md`: Q&A for Phase 2.
-*   `phase3_text_vectorization_QnA.md`: Q&A for Phase 3.
-*   `phase4_modeling_QnA.md`: Q&A for Phase 4.
-*   `phase5_implementation_evaluation_QnA.md`: Q&A for Phase 5.
-*   `phase6_real_world_applications_QnA.md`: Q&A for Phase 6.
+---
 
 ## 🚀 Getting Started
 
-Review the `classical_NLP_roadmap.md` to get an overview of the journey. Then, dive into the specific Q&A files to test your knowledge and deepen your understanding of each concept.
+If you want to review the theoretical concepts, head over to `documentation/learning_materials/original_README.md`.
+
+If you want to dive into the practical code, start with the notebooks in `datasets/01_sms_spam_collection/notebooks/`.
+
+### Setup
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
