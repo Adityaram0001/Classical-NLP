@@ -1,9 +1,16 @@
-.DS_Store
-*.pyc
-__pycache__/
-.env
-.venv
-env/
+# Ignore data and models to prevent GitHub push errors (files > 50MB)
+**/data/raw/*.csv
+**/data/raw/*.tsv
+**/data/processed/*.csv
+**/data/processed/*.pkl
+**/models/*.pkl
+**/results/*.csv
+
+# Virtual environment
 venv/
-.idea/
-.vscode/
+.env
+
+# Jupyter and Python caches
+.ipynb_checkpoints/
+__pycache__/
+*.pyc

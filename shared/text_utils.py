@@ -58,3 +58,14 @@ def apply_lemmatization(text):
     lemmatizer = WordNetLemmatizer()
     tokens = word_tokenize(text)
     return " ".join([lemmatizer.lemmatize(word) for word in tokens])
+
+def clean_html_text(text):
+    """
+    Specifically removes HTML tags like <br /> which are common in web-scraped data.
+    """
+    if not isinstance(text, str):
+        return ""
+    # Remove HTML tags using regex
+    text = re.sub(r'<[^>]+>', ' ', text)
+    # Apply the basic cleaning on top of it
+    return clean_text_basic(text)

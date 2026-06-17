@@ -12,7 +12,8 @@ def evaluate_classification(y_true, y_pred, labels=None):
     
     cm = confusion_matrix(y_true, y_pred)
     plt.figure(figsize=(6, 4))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=labels, yticklabels=labels)
+    hm_labels = labels if labels is not None else 'auto'
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=hm_labels, yticklabels=hm_labels)
     plt.ylabel('Actual')
     plt.xlabel('Predicted')
     plt.title('Confusion Matrix')

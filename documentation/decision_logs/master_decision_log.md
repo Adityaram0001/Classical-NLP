@@ -37,3 +37,22 @@ This file tracks major architectural or conceptual decisions made across the var
 *   **Decision:** Use MultinomialNB and LogisticRegression.
 *   **Alternatives:** Binary Classifiers (Complex to orchestrate for 5 classes manually 1v1).
 *   **Reasoning:** Both chosen models handle multi-class problems natively or via One-Vs-Rest seamlessly. They are the golden standard for BoW/TF-IDF text classification across multiple categories.
+
+---
+
+## Project 03: IMDB Movie Reviews Dataset
+
+### 1. Stopword Removal Strategy
+*   **Decision:** Do **NOT** remove stopwords during cleaning.
+*   **Alternatives:** Standard stopword removal (reduces feature space).
+*   **Reasoning:** For Sentiment Analysis, negations (e.g. 'not', 'very', 'too') are critical. Standard stopword lists typically strip these words out. Removing them turns "not good" into "good", completely flipping the sentiment. We leave them in to preserve context.
+
+### 2. N-Gram Vectorization
+*   **Decision:** Use `CountVectorizer(ngram_range=(1, 2))` (Unigrams + Bigrams).
+*   **Alternatives:** Unigrams only (Misses context/negations), Trigrams (Explodes matrix size).
+*   **Reasoning:** Bigrams strike the perfect balance. They capture local context like "not bad" or "very good" without the exponential matrix explosion and extreme sparsity that trigrams introduce.
+
+### 3. Handling Massive Feature Spaces
+*   **Decision:** Use L2 Regularized Linear Models (`LogisticRegression` and `RidgeClassifier`).
+*   **Alternatives:** Unregularized models, Tree-based models.
+*   **Reasoning:** With Bigrams on 50,000 documents, the feature space grows to over 100,000 columns. Tree-based models fail completely on massive sparse data. Unregularized models will overfit instantly (the curse of dimensionality). L2 Regularization aggressively shrinks noisy coefficients, forcing the model to rely only on truly generalizable sentiment indicators.
